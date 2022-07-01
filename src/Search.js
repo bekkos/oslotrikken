@@ -44,7 +44,7 @@ class Search extends Component {
     render() {
         return(
             <div className="col-md-3 d-flex flex-column justify-content-center align-items-center flex-wrap ">
-                <input id="input" type="text" className="form-control m-2 text-center" autoComplete="off" onChange={this.autoComplete} placeholder="Søk etter trikk / trikkestopp" />
+                <input id="input" type="text" className="form-control text-center" autoComplete="off" onChange={this.autoComplete} placeholder="Søk etter trikk / trikkestopp" />
                 <div className="suggestion-container col-md-12">
                     {
                         this.state.suggestions['features'].map((suggestion) => {

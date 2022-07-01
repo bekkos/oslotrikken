@@ -66,7 +66,7 @@ class Container extends Component {
                     <div className="container-fluid d-flex justify-content-center align-items-center flex-container mt-5">
                         <Search handler={this.handler} />
                     </div>
-                    <div className="col-12 d-flex justify-content-center align-items-center flex-row flex-wrap mt-5">
+                    <div className="col-12 d-flex justify-content-center align-items-center flex-row flex-wrap mt-5 mb-5">
                         {
                             this.state.departures.map((departure) => {
                                 let timeToDisplay = new Date(departure['expectedDepartureTime']).toLocaleTimeString();
@@ -77,6 +77,7 @@ class Container extends Component {
                                 timeString={departure['expectedDepartureTime']} />
                             })
                         }
+                        <div className="mt-5 mb-5"></div>
                     </div>
                 </>
             );
