@@ -22,17 +22,25 @@ class Departure extends Component {
 
     updateDifference = (s) => {
         let currentTime = new Date();
-        currentTime.setHours(currentTime.getHours() + 1)
+        currentTime.setHours(currentTime.getHours())
         let difference = Date.parse(s) - currentTime.getTime();
         if(difference < 0) {
             this.setState({difference: null})
         }
-        this.setState({difference: new Date(difference).toLocaleTimeString()})
+        this.setState({difference: difference})
     }
 
 
     render() {
-        let displayDiff = this.state.difference;
+        let displayDiff = "";
+        if(this.state.difference <= 0) {
+            displayDiff = "NÅ";
+        }  else {
+            let date = new Date(this.state.difference);
+            date.setHours(date.getHours() - 1);
+            displayDiff = date.toLocaleTimeString();
+        }
+        
         if(this.props.transportType == "localBus") {
             return(
                 <div className="col-md-6 bg-dark border-light text-white d-flex justify-content-center align-items-center flex-column a-fadeIn">

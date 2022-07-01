@@ -10,10 +10,10 @@ class Container extends Component {
         this.handler = this.handler.bind(this);
 
         this.state = {
-            searched: false
+            searched: false,
+            queryState: false
         }
     }
-
 
     handler(stopId) {
         this.getDepartures(stopId);
@@ -28,7 +28,7 @@ class Container extends Component {
     updateTable = () => {
         let currentTime = new Date();
         let difference = Date.parse(this.state.departures[0]['expectedDepartureTime']) - currentTime.getTime();
-        if(difference < 0) {
+        if(difference < -10000) {
             this.getDepartures(this.state.stopId);
         }
 
@@ -46,7 +46,8 @@ class Container extends Component {
                 searched: true,
                 stopId: stopId
             })
-            let timerID = setInterval(() => this.updateTable(), 1000);
+            
+            this.timerID = setInterval(() => this.updateTable(), 10000);
         })
     }
 
@@ -60,7 +61,7 @@ class Container extends Component {
             );
 
         } else {
-            console.log(this.state.departures);
+            
             return(
                 <>
                     <div className="container-fluid d-flex justify-content-center align-items-center flex-container mt-5">
@@ -68,20 +69,26 @@ class Container extends Component {
                     </div>
                     <div className="col-12 d-flex justify-content-center align-items-center flex-row flex-wrap mt-5 mb-5">
                         {
+                            
                             this.state.departures.map((departure) => {
                                 let timeToDisplay = new Date(departure['expectedDepartureTime']).toLocaleTimeString();
-                                return <Departure key={Math.random() * 1000000} title={departure['destinationDisplay']['frontText']}
-                                publicCode={departure['serviceJourney']['journeyPattern']['line']['publicCode']}
-                                transportType={departure['serviceJourney']['journeyPattern']['line']['transportSubmode']}
-                                timeToDisplay={timeToDisplay} 
-                                timeString={departure['expectedDepartureTime']} />
+                                return <Departure 
+                                    key={Math.random() * 1000000} 
+                                    title={departure['destinationDisplay']['frontText']}
+                                    publicCode={departure['serviceJourney']['journeyPattern']['line']['publicCode']}
+                                    transportType={departure['serviceJourney']['journeyPattern']['line']['transportSubmode']}
+                                    timeToDisplay={timeToDisplay} 
+                                    timeString={departure['expectedDepartureTime']} 
+                                />
                             })
+                            
                         }
                         <div className="mt-5 mb-5"></div>
                     </div>
                 </>
             );
-        }   
+        }
+           
     }
 }
 
