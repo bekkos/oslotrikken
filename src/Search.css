@@ -1,5 +1,7 @@
 .suggestion-container {
-    min-height: 35px;
+    min-height: 1000px;
+    position: absolute;
+    transform: translate(0, 520px);
 }
 
 .suggestion {

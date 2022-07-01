@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./Departure.css";
 
 class Departure extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class Departure extends Component {
         let displayDiff = this.state.difference;
         if(this.props.transportType == "localBus") {
             return(
-                <div className="col-md-6 bg-dark border-light text-white d-flex justify-content-center align-items-center flex-column">
+                <div className="col-md-6 bg-dark border-light text-white d-flex justify-content-center align-items-center flex-column a-fadeIn">
                     <div className="d-flex justify-content-center align-items-center flex-row flex-nowrap">
                         <h1 className="fw-lighter">{this.props.publicCode + " " + this.props.title || "12 MAJORSTUEN"}</h1>
                         <img src="./img/bus.png" className="img-fluid m-2" style={{filter: "invert()"}} width="5%" />
@@ -45,7 +46,7 @@ class Departure extends Component {
             );
         } else {
             return(
-                <div className="col-md-6 bg-dark border-light text-white d-flex justify-content-center align-items-center flex-column">
+                <div className="col-md-6 bg-dark border-light text-white d-flex justify-content-center align-items-center flex-column a-fadeIn">
                     <div className="d-flex justify-content-center align-items-center flex-row flex-nowrap">
                         <h1 className="fw-lighter">{this.props.publicCode + " " + this.props.title || "12 MAJORSTUEN"}</h1>
                         <img src="./img/tram.png" className="img-fluid m-2" style={{filter: "invert()"}} width="5%"/>
