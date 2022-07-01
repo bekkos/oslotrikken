@@ -23,11 +23,17 @@ class Search extends Component {
             })
             return;
         }
-        $.get("https://api.entur.io/geocoder/v1/autocomplete?text=" + input + "&lang=en", (data) => {
+
+        $.ajax({
+            url: "https://api.entur.io/geocoder/v1/autocomplete?text=" + input + "&lang=en",
+            headers: {"ET-Client-Name": "bekkos.tech-oslotrikken"},
+            type: "GET"
+        }).done((data) => {
             this.setState({
                 suggestions: data
             })
         })
+        
     }
 
 
