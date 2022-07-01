@@ -1,0 +1,21 @@
+.suggestion-container {
+    min-height: 35px;
+}
+
+.suggestion {
+    height: 35px;
+    opacity: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suggestion p {
+    margin: 0 !important;
+}
+
+.suggestion:hover {
+    background-color: aliceblue;
+    cursor: pointer;
+}
