@@ -7,7 +7,7 @@ function App() {
     <div className="App bg-dark vh-100">
       <Navbar />
       <Container />
-      <footer className='text-secondary fs-6 text-center d-flex justify-content-around align-items-center bg-dark'>
+      <footer className='text-secondary fs-6 text-center d-flex flex-wrap justify-content-around align-items-center bg-dark'>
         <p className=''>Utviklet av <a href="https://github.com/bekkos">Martin Isaksen Bekkos</a></p>
         <div className='d-flex justify-content-center'>
           <p className=''>Data made available by <a href="https://entur.no/">Entur</a></p>
